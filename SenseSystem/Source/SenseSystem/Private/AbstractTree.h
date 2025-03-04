@@ -19,6 +19,7 @@
 #include "Containers/UnrealString.h"
 
 #include "DrawDebugHelpers.h"
+#include "Templates/ChooseClass.h"
 
 
 #if !defined(IF_CONSTEXPR)
@@ -126,18 +127,18 @@ struct TTreeBox
 	using VSpace = FVectorSpace<InVectorSpace>;
 
 	TTreeBox()
-		: Min(0) //
-		, Max(0)
+		: min(0.f) //
+		, max(0.f)
 		, Center(0)
 	{}
 	explicit TTreeBox(Real HalfSize)
-		: Min(PointType{-HalfSize, -HalfSize}) //
-		, Max(PointType{HalfSize, HalfSize})
+		: min(PointType{-HalfSize, -HalfSize}) //
+		, max(PointType{HalfSize, HalfSize})
 		, Center((Max + Min) / 2)
 	{}
 	explicit TTreeBox(PointType Point)
-		: Min(Point) //
-		, Max(Point)
+		: min(Point) //
+		, max(Point)
 		, Center(Point)
 	{}
 	TTreeBox(const PointType& InMin, const PointType& InMax)
@@ -409,7 +410,7 @@ public:
 			}
 		}
 		checkNoEntry();
-		UE_ASSUME(0);
+		//UE_ASSUME(0);
 		return SubNodes[0];
 	}
 
@@ -1211,7 +1212,7 @@ private:
 			Self_ID = LoopRef.Parent;
 		}
 		checkNoEntry();
-		UE_ASSUME(0);
+	//UE_ASSUME(0);
 		return MaxIndexQt;
 	}
 
