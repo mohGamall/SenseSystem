@@ -269,7 +269,7 @@ UClass* USenseSystemBPLibrary::GetOwnerBlueprintClassType(const EOwnerBlueprintC
 		default:
 		{
 			checkNoEntry();
-			//UE_ASSUME(0);
+		
 			return nullptr;
 		}
 	}
